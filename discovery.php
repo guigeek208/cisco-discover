@@ -168,7 +168,7 @@
                         $listshapes[$neigh['hostname']] = "Phone";
                     }
                     if (preg_match('/Switch/', $neigh['capabilities'], $matches)) { 
-			            if (preg_match('/VMware ESX/', $neigh['capabilities'], $matches)) {
+			            if (preg_match('/VMware ESX/', $neigh['platform'], $matches)) {
                             $listshapes[$neigh['hostname']] = "Host";
                         } else {
                             $listshapes[$neigh['hostname']] = "Switch";
