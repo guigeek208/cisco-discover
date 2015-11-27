@@ -1,0 +1,15 @@
+#!/usr/bin/expect
+ 
+#Usage ssh.expect <host> <ssh user> <ssh password>
+ 
+set timeout 120
+ 
+spawn ssh [lindex $argv 1]@[lindex $argv 0] "[lindex $argv 4]"
+ 
+expect "yes/no" {
+    send "yes\r"
+    expect "*?assword" { send "[lindex $argv 2]\r" }
+    } "*?assword" { send "[lindex $argv 2]\r" }
+    #expect "#"
+    #send "exit\r"
+    expect eof
